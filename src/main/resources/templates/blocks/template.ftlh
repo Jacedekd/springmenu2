@@ -23,13 +23,15 @@
                 <a class="p-2 text-dark" href="/product/add">Добавить товар</a>
                 <a class="p-2 text-dark" href="#">Аккаунт</a>
             </nav>
-<#--            <#if>-->
+<#--            <#if user.email??>-->
+<#--                <h3>${user.name}</h3>-->
+<#--            </#if>-->
                 <form action="/logout" method="post">
                     <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                     <input type="submit" class="btn btn-outline-primary" value="Выйти"/>
                 </form>
 <#--            <#else>-->
-<#--            <a href="/login">Войти</a>-->
+            <a href="/login">Войти</a>
 <#--            </#if>-->
         </div>
         <#nested >

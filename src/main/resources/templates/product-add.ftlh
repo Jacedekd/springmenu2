@@ -1,30 +1,32 @@
 <#import "blocks/template.ftlh" as t>
 <@t.template>
-    <main class="main">
-        <div class="container mt-5 mb-5">
-            <form action="/product/create" method="post" enctype="multipart/form-data">
-                Название товара: <input type="text" name="title" class="form-control"/><br><br>
-                Краткое описание товара: <input type="text" name="description" class="form-control"/><br><br>
-                Полное описание товара: <input type="text" name="full_text" class="form-control"/><br><br>
-<#--                Категория: <input type="text" name="category" class="form-control"/><br><br>-->
-                <label for="category">Категория</label>
-                <select name="category" id="category" class="form-control">
-                    <option value="">Категория не выбрана </option>
-                    <option value="Первые блюда">Первые блюда</option>
-                    <option value="Вторые блюда">Вторые блюда</option>
-                    <option value="Напитки">Напитки</option>
-                </select>
-                Граммы: <input type="number" name="gram" class="form-control"/><br><br>
-                Цена товара: <input type="number" name="price" class="form-control"/><br><br>
-                Первая фотография: <input type="file" name="file1" class="form-control"/><br><br>
-                Вторая фотография: <input type="file" name="file2" class="form-control"/><br><br>
-                Третья фотография: <input type="file" name="file3" class="form-control"/><br><br>
-                <input type="hidden" name="_csrf" value="${_csrf.token}">
-                <input type="submit" value="Добавить товар"/>
-            </form>
+<#--    <#if user.email??>-->
+        <main class="main">
+            <div class="container mt-5 mb-5">
+                <form action="/product/create" method="post" enctype="multipart/form-data">
+                    Название товара: <input type="text" name="title" class="form-control"/><br><br>
+                    Краткое описание товара: <input type="text" name="description" class="form-control"/><br><br>
+                    Полное описание товара: <input type="text" name="full_text" class="form-control"/><br><br>
+                    <#--                Категория: <input type="text" name="category" class="form-control"/><br><br>-->
+                    <label for="category">Категория</label>
+                    <select name="category" id="category" class="form-control">
+                        <option value="">Категория не выбрана </option>
+                        <option value="Первые блюда">Первые блюда</option>
+                        <option value="Вторые блюда">Вторые блюда</option>
+                        <option value="Напитки">Напитки</option>
+                    </select>
+                    Граммы: <input type="number" name="gram" class="form-control"/><br><br>
+                    Цена товара: <input type="number" name="price" class="form-control"/><br><br>
+                    Первая фотография: <input type="file" name="file1" class="form-control"/><br><br>
+                    Вторая фотография: <input type="file" name="file2" class="form-control"/><br><br>
+                    Третья фотография: <input type="file" name="file3" class="form-control"/><br><br>
+                    <input type="hidden" name="_csrf" value="${_csrf.token}">
+                    <input type="submit" value="Добавить товар"/>
+                </form>
 
-        </div>
-    </main>
+            </div>
+        </main>
+<#--    </#if>-->
 </@t.template>
 <#--<#import "blocks/template.ftlh" as t>-->
 <#--<@t.template user>-->

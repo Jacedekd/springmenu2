@@ -26,7 +26,12 @@ public class UserController {
 
     @PostMapping("/registration")
     public String createUser(User user, Model model) {
-        userService.createUser(user);
+        if (!userService.createUser(user)) {
+//            model.addAtr("errorMessage", "Пользователь с email: " + user.getEmail() + "уже существует");
+            model.addText("errorMessage");
+            return "registration";
+        }
+//        userService.createUser(user);
         return "redirect:/login";
     }
 

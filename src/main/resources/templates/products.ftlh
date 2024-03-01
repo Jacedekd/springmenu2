@@ -2,6 +2,7 @@
 <@t.template>
     <main class="main">
         <div class="container">
+
             <#list products as product>
                 <#if product.category == "Первые блюда">
             <div class="mainBlock">
