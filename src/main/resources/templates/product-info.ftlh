@@ -1,5 +1,5 @@
 <#import "blocks/template.ftlh" as t>
-<@t.template>
+<@t.template user>
     <div class="container">
         <h4 class="productInfoTitle">Подробная информация о товаре</h4>
         <div class="productInfo">

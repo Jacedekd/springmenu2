@@ -1,5 +1,5 @@
 <#import "blocks/template.ftlh" as t>
-<@t.template>
+<@t.template user>
     <main class="main">
         <div class="container">
 

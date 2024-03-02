@@ -1,4 +1,4 @@
-<#macro template>
+<#macro template user>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -13,27 +13,33 @@
     <body>
     <div class="wrapper">
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-            <div class="logo_Img">
+            <a href="/" class="logo_Img">
                 <img src="/static/images/logo_aiu.png" class="img">
-            </div>
+            </a>
 
             <h5 class="my-0 mr-md-auto font-weight-normal">Menu for Ala-Too</h5>
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-dark" href="/">Меню</a>
-                <a class="p-2 text-dark" href="/product/add">Добавить товар</a>
-                <a class="p-2 text-dark" href="#">Аккаунт</a>
+                <#if user.isAdmin()>
+                    <a class="p-2 text-dark" href="/product/add">Панель администратора</a>
+                </#if>
+                <a class="p-2 text-dark" href="/">Аккаунт</a>
             </nav>
-<#--            <#if user.email??>-->
-<#--                <h3>${user.name}</h3>-->
-<#--            </#if>-->
+
+            <#if user.email??>
+
                 <form action="/logout" method="post">
-                    <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+                    <input type="hidden" name="_csrf" value="${_csrf.token}">
                     <input type="submit" class="btn btn-outline-primary" value="Выйти"/>
                 </form>
-<#--            <#else>-->
-            <a href="/login">Войти</a>
-<#--            </#if>-->
+            <#else>
+                <a href="/login">Войти</a></h1>
+            </#if>
+
         </div>
+
+
+
         <#nested >
         <footer class="footer">
             <div class="container">

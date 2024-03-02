@@ -1,5 +1,5 @@
 <#import "blocks/template.ftlh" as t>
-<@t.template>
+<@t.template user>
     <h4>Авторизация</h4>
     <form action="/login" method="post">
         Эл. почта: <input type="email" name="username"><br><br>
@@ -8,4 +8,7 @@
         <input type="submit" value="Вход"/>
     </form>
     <a href="/registration">Зарегистрироваться</a>
+    <#if errorMessage??>
+        <h2 style="color: red">${errorMessage}</h2>
+    </#if>
 </@t.template>

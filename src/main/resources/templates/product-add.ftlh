@@ -1,5 +1,6 @@
 <#import "blocks/template.ftlh" as t>
-<@t.template>
+<@t.template user>
+<#--    <#assign user = user!defaultValue>-->
 <#--    <#if user.email??>-->
         <main class="main">
             <div class="container mt-5 mb-5">
