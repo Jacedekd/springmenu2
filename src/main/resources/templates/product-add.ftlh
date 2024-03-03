@@ -1,7 +1,6 @@
 <#import "blocks/template.ftlh" as t>
 <@t.template user>
-<#--    <#assign user = user!defaultValue>-->
-<#--    <#if user.email??>-->
+
         <main class="main">
             <div class="container mt-5 mb-5">
                 <form action="/product/create" method="post" enctype="multipart/form-data">
@@ -15,19 +14,16 @@
                         <option value="Первые блюда">Первые блюда</option>
                         <option value="Вторые блюда">Вторые блюда</option>
                         <option value="Напитки">Напитки</option>
-                    </select>
+                    </select><br><br>
                     Граммы: <input type="number" name="gram" class="form-control"/><br><br>
                     Цена товара: <input type="number" name="price" class="form-control"/><br><br>
-                    Первая фотография: <input type="file" name="file1" class="form-control"/><br><br>
-                    Вторая фотография: <input type="file" name="file2" class="form-control"/><br><br>
-                    Третья фотография: <input type="file" name="file3" class="form-control"/><br><br>
+                    Превью фотография: <input type="file" name="file1" class="form-control"/><br><br>
+                    Основная фотография: <input type="file" name="file2" class="form-control"/><br><br>
                     <input type="hidden" name="_csrf" value="${_csrf.token}">
                     <input type="submit" value="Добавить товар"/>
                 </form>
-
             </div>
         </main>
-<#--    </#if>-->
 </@t.template>
 <#--<#import "blocks/template.ftlh" as t>-->
 <#--<@t.template user>-->

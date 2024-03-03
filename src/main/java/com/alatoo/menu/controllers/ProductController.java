@@ -17,7 +17,6 @@ import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
-//@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 public class ProductController {
     private final ProductService productService;
 
@@ -30,11 +29,6 @@ public class ProductController {
         return "products";
     }
 
-//    @GetMapping("/product/add")
-//    public String itemAdd(Model model) {
-//        return "product-add";
-//    }
-
     @GetMapping("/product/{id}")
     public String productInfo(@PathVariable Long id, Model model, Principal principal) {
         Product product = productService.getProductById(id);
@@ -45,17 +39,5 @@ public class ProductController {
         return "product-info";
     }
 
-
-//    @PostMapping("/product/create")
-//    public String productCreate(@RequestParam("file1") MultipartFile file1, @RequestParam("file2") MultipartFile file2, @RequestParam("file3") MultipartFile file3, Product product, Principal principal) throws IOException {
-//        productService.saveProduct(principal, product, file1, file2, file3);
-//        return "redirect:/";
-//    }
-
-//    @PostMapping("/product/delete/{id}")
-//    public String productDelete(@PathVariable Long id) {
-//        productService.deleteProduct(id);
-//        return "redirect:/";
-//    }
 
 }

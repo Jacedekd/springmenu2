@@ -1,5 +1,6 @@
 package com.alatoo.menu.models;
 
+import com.alatoo.menu.models.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,9 +27,14 @@ public class Image {
     private String contentType;
     @Column(name = "isPreviewImage")
     private boolean isPreviewImage;
+    @Column(name = "mainImageId")
+    private boolean mainImageId;
     @Lob
     @Column(name = "bytes", columnDefinition = "longblob")
     private byte[] bytes;
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     private Product product;
+
+
+
 }
