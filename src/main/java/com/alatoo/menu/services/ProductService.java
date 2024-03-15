@@ -8,6 +8,7 @@ import com.alatoo.menu.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -52,6 +53,19 @@ public class ProductService {
         productRepository.save(product);
     }
 
+
+    public void updateProduct(Long id, MultipartFile file1, MultipartFile file2, Principal principal, Product product) throws IOException {
+        Product productId = productRepository.findById(id).orElseThrow();
+        productId.setTitle(product.getTitle());
+        productId.setDescription(product.getDescription());
+        productId.setFull_text(product.getFull_text());
+        productId.setGram(product.getGram());
+        productId.setPrice(product.getPrice());
+        productId.setShow(product.isShow());
+        productId.setCategory(product.getCategory());
+        productRepository.save(productId);
+    }
+
     public User getUserByPrincipal(Principal principal) {
         if (principal == null) return new User();
         return userRepository.findByEmail(principal.getName());
@@ -69,6 +83,11 @@ public class ProductService {
 
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
+    }
+
+    public void isShowProduct(Long id, Product product) {
+        product.setShow(false);
+        productRepository.save(product);
     }
 
     public Product getProductById(Long id) {

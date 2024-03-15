@@ -3,7 +3,7 @@
     <main class="main">
         <div class="container">
             <#list products as product>
-                <#if product.category=="Первые блюда">
+                <#if product.category=="Первые блюда" && product.show == true>
                     <div class="mainBlock">
                         <div class="mainBlock__Title">Первые блюда</div>
                         <div class="mainGroup">
@@ -27,7 +27,7 @@
                 <h3>Первых блюд ещё нет</h3>
             </#list>
             <#list products as product>
-                <#if product.category=="Вторые блюда">
+                <#if product.category=="Вторые блюда" && product.show == true>
                     <div class="mainBlock">
                         <div class="mainBlock__Title">Вторые блюда</div>
                         <div class="mainGroup">
@@ -51,7 +51,7 @@
                 <h3>Вторых блюд ещё нет</h3>
             </#list>
             <#list products as product>
-                <#if product.category=="Напитки">
+                <#if product.category=="Напитки" && product.show == true>
                     <div class="mainBlock">
                         <div class="mainBlock__Title">Напитки</div>
                         <div class="mainGroup">

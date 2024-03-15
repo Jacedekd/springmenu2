@@ -32,6 +32,8 @@ public class Product {
     private int gram;
     @Column(name = "price")
     private int price;
+    @Column(name = "isShow")
+    private boolean isShow = true;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
     private List<Image> images = new ArrayList<>();
