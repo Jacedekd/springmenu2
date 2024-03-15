@@ -22,7 +22,7 @@ public class UserService {
         String userEmail = user.getEmail();
         if (userRepository.findByEmail(userEmail) != null) return false;
 
-        if (userEmail.equals("admin@gmail.com")) {
+        if (userEmail.equals("aziz@gmail.com")) {
             user.setActive(true);
             user.getRoles().add(Role.ROLE_ADMIN);
             user.setPassword(passwordEncoder.encode(user.getPassword()));
