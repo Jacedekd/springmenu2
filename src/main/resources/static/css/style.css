@@ -75,11 +75,17 @@ body {
 .mainItem__Price {
     color: rgb(32, 32, 34);
     font-size: 18px;
-    font-style:normal;
+    font-style: normal;
     font-weight: 600;
     line-height: normal;
 
 }
+
+.mainGroup {
+    position: relative;
+}
+
+
 .mainItem__Button {
     display: flex;
     justify-content: center;
@@ -89,6 +95,7 @@ body {
     background-color: #F3F4F5;
     border-radius: 50%;
     cursor: pointer;
+
 }
 .mainItem__Class {
     display: flex;
@@ -157,4 +164,38 @@ a:hover {
     width: 50px;
     height: 50px;
     margin-right: 20px;
+}
+
+.mainCart {
+    position: fixed;
+    bottom: 10%;
+    right: 10%;
+    width: 125px;
+    min-width: 125px;
+    height: 58px;
+    padding: 14px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(168, 24, 23);
+    cursor: pointer;
+    z-index: 10;
+    column-gap: 10px;
+}
+.mainCart img {
+    width: 30px;
+    height: 30px;
+}
+.mainCartPrice {
+    color: #fff;
+}
+
+.mainItem__Group {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    position: absolute;
+    right: 3%;
+    bottom: 15%;
 }

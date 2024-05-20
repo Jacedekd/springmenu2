@@ -2,12 +2,17 @@
 <@t.template user>
     <main class="main">
         <div class="container">
+            <div id="cart"> </div>
+            <div class="mainCart">
+                <img src="/static/images/basket.png" >
+                <div class="mainCartPrice"></div>
+            </div>
             <#list products as product>
                 <#if product.category=="Первые блюда" && product.show == true>
                     <div class="mainBlock">
                         <div class="mainBlock__Title">Первые блюда</div>
                         <div class="mainGroup">
-                            <div class="mainItem">
+                            <a href="/product/${product.id}" class="mainItem">
                                 <div class="imgBlock">
                                     <img src="/images/${product.previewImageId}" /><br><br>
                                 </div>
@@ -16,9 +21,14 @@
                                     <div class="mainItem__Desc">${product.full_text}</div>
                                     <div class="mainItem__Class">
                                         <div class="mainItem__Price">${product.price} сом</div>
-                                        <a href="/product/${product.id}" class="mainItem__Button">+</a>
+
                                     </div>
                                 </div>
+                            </a>
+                            <div class="mainItem__Group">
+                                <div class="mainItem__Button add-to-cart">+</div>
+                                <span>1</span>
+                                <div class="mainItem__Button remove-from-cart">-</div>
                             </div>
                         </div>
                     </div>
@@ -31,7 +41,7 @@
                     <div class="mainBlock">
                         <div class="mainBlock__Title">Вторые блюда</div>
                         <div class="mainGroup">
-                            <div class="mainItem">
+                            <div href="/product/${product.id}" class="mainItem">
                                 <div class="imgBlock">
                                     <img src="/images/${product.previewImageId}" /><br><br>
                                 </div>
@@ -40,10 +50,10 @@
                                     <div class="mainItem__Desc">${product.full_text}</div>
                                     <div class="mainItem__Class">
                                         <div class="mainItem__Price">${product.price} сом</div>
-                                        <a href="/product/${product.id}" class="mainItem__Button">+</a>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
+                                <div class="mainItem__Button add-to-cart">+</div>
                         </div>
                     </div>
                 </#if>
@@ -55,7 +65,7 @@
                     <div class="mainBlock">
                         <div class="mainBlock__Title">Напитки</div>
                         <div class="mainGroup">
-                            <div class="mainItem">
+                            <div href="/product/${product.id}" class="mainItem">
                                 <div class="imgBlock">
                                     <img src="/images/${product.previewImageId}" /><br><br>
                                 </div>
@@ -64,10 +74,10 @@
                                     <div class="mainItem__Desc">${product.full_text}</div>
                                     <div class="mainItem__Class">
                                         <div class="mainItem__Price">${product.price} сом</div>
-                                        <a href="/product/${product.id}" class="mainItem__Button">+</a>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
+                                <div class="mainItem__Button add-to-cart">+</div>
                         </div>
                     </div>
                 </#if>
