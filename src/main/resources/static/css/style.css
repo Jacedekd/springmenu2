@@ -182,6 +182,11 @@ a:hover {
     cursor: pointer;
     z-index: 10;
     column-gap: 10px;
+    transform: translateX(300%);
+    transition: 0.4s;
+}
+.mainCart.active {
+    transform: translateX(0%);
 }
 .mainCart img {
     width: 30px;
@@ -198,4 +203,9 @@ a:hover {
     position: absolute;
     right: 3%;
     bottom: 15%;
+}
+
+.remove-from-cart,
+.quantity {
+    opacity: 0;
 }
