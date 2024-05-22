@@ -12,7 +12,7 @@
     </head>
     <body>
     <div class="wrapper">
-        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom box-shadow">
             <a href="/" class="logo_Img">
                 <img src="/static/images/logo_aiu.png" class="img">
             </a>
@@ -41,9 +41,9 @@
 
 
         <#nested >
-        <footer class="footer">
-            <div class="container">
-                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+<#--        <footer class="footer">-->
+<#--            <div class="container">-->
+                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
                     <p class="col-md-4 mb-0 text-body-secondary">© 2023 Company, Inc</p>
 
                     <a href="/"
@@ -62,8 +62,8 @@
                         <li class="nav-item"><a href="#" class="nav-link px-2 text-dark">About</a></li>
                     </ul>
                 </footer>
-            </div>
-        </footer>
+<#--            </div>-->
+<#--        </footer>-->
     </div>
 
     <script src="/static/js/main.js"></script>

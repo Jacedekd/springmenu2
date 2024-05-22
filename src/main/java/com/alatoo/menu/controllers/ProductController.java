@@ -35,5 +35,12 @@ public class ProductController {
         return "product-info";
     }
 
+    @GetMapping("/product/cart")
+    public String products(Principal principal, Model model) {
+        model.addAttribute("user", productService.getUserByPrincipal(principal));
+
+        return "cart";
+    }
+
 
 }

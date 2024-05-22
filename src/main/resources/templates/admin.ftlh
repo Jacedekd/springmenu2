@@ -96,8 +96,10 @@
                     <label for="category">Категория</label>
                     <select name="category" id="category" class="form-control">
                         <option value="">Категория не выбрана </option>
+                        <option value="Завтраки">Завтраки</option>
                         <option value="Первые блюда">Первые блюда</option>
                         <option value="Вторые блюда">Вторые блюда</option>
+                        <option value="Салаты">Салаты</option>
                         <option value="Напитки">Напитки</option>
                     </select><br><br>
                     Граммы: <input type="number" name="gram" class="form-control"/><br><br>

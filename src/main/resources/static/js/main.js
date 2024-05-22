@@ -75,7 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const item in cartItems) {
             const productElement = document.querySelector(`.mainItem__Info[data-name="${item}"]`);
             if (productElement) { // Проверяем, что элемент продукта найден
-                const price = parseFloat(productElement.querySelector('.mainItem__Price').textContent);
+                const price = parseFloat(productElement.querySelector('.mainItem__Price').textContent.replace(/\s/g, ''));
+                const formattedPrice = productElement.querySelector('.mainItem__Price').textContent.replace(/\s/g, '');
+                console.log(formattedPrice)
                 cartTotal += price * cartItems[item];
             }
         }
@@ -117,3 +119,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cart__Group = document.querySelector('.cart__Group');
+
+    function loadCartFromLocalStorage() {
+        try {
+            const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+            console.log('Loaded from localStorage:', storedCartItems);
+
+            if (Object.keys(storedCartItems).length === 0) {
+                console.warn('Корзина пуста или данные не найдены в localStorage');
+                return;
+            }
+
+            for (const item in storedCartItems) {
+                displayCartItem(item, storedCartItems[item]);
+            }
+        } catch (error) {
+            console.error('Ошибка при загрузке корзины из localStorage:', error);
+        }
+    }
+
+    function displayCartItem(name, quantity) {
+        const cartItemElement = document.createElement('div');
+        cartItemElement.classList.add('cart__Block');
+        cartItemElement.innerHTML = `
+            
+                        <div class="cart__Item">
+                            <div class="cart__ItemTitle">${name}</div>
+                            <div class="cart__ItemPrice">30 с</div>
+                        </div>
+                        <div class="cart__Item">
+                            <div class="cart__ItemTotal">30 c x ${quantity} = 60 c</div>
+                        </div>
+        `;
+        cart__Group.appendChild(cartItemElement);
+    }
+
+    loadCartFromLocalStorage();
+});
+

@@ -8,6 +8,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Montserrat", sans-serif;
+    background-color: #e7e7e7;
 }
 
 .wrapper {
@@ -15,12 +16,19 @@ body {
     position: relative;
     overflow: hidden;
 }
+.main {
+    max-width: 80vw;
+    margin: 0 auto;
+    background-color: #ffffff;
 
+}
 .container {
     max-width: 95vw;
     margin: 0 auto;
 }
-
+.mainContainer {
+    padding: 70px 30px;
+}
 .navigation {
     height: 70px;
     width: 100vw;
@@ -40,13 +48,19 @@ body {
     border: 1px solid rgb(231, 231, 231);
     border-radius: 10px;
     height: 165px;
+    color: black;
 }
+.mainItem:hover {
+    color: rgb(168, 24, 23);
+}
+
 .mainBlock__Title {
     color: var(--, #590404);
     font-size: 26px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-bottom: 20px;
 }
 .mainItem__Info {
     display: flex;
@@ -70,6 +84,7 @@ body {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    margin-bottom: auto;
 }
 
 .mainItem__Price {
@@ -186,7 +201,7 @@ a:hover {
     transition: 0.4s;
 }
 .mainCart.active {
-    transform: translateX(0%);
+    transform: translateX(-50%);
 }
 .mainCart img {
     width: 30px;
@@ -207,5 +222,58 @@ a:hover {
 
 .remove-from-cart,
 .quantity {
-    opacity: 0;
+    opacity: 1;
+}
+
+footer {
+    background-color: #ffffff;
+}
+
+
+.cart {
+    background-color: rgb(243, 244, 245);
+    padding: 40px 15px;
+    border-radius: 10px;
+}
+
+.cart__Title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 19px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.cart__Block {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 95%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+}
+.cart__Item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart__Item:first-child {
+    border-bottom: 0.5px solid gray;
+    padding-bottom: 5px;
+}
+
+.cart__Item:last-child {
+    margin-left: auto;
+}
+
+.cart__Group {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.cart__ItemMod {
+    display: flex;
+    justify-content: space-between;
 }
