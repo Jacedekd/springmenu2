@@ -27,21 +27,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const productElement = event.target.parentElement.previousElementSibling.lastElementChild;
             const productName = productElement.querySelector('.mainItem__Title').textContent;
             const change = event.target.classList.contains('add-to-cart') ? 1 : -1;
+            const price = parseFloat(productElement.querySelector('.mainItem__Price').textContent.replace(/\s/g, ''));
 
-            changeItemQuantity(productName, change);
+            changeItemQuantity(productName, change, price);
 
 
         }
     });
 
-    function changeItemQuantity(name, change) {
+
+    function changeItemQuantity(name, change, price) {
         if (!cartItems[name]) {
-            cartItems[name] = 0;
+            cartItems[name] = {
+                name: name,
+                price: price,
+                quantity: 0
+            };
 
         }
 
-        cartItems[name] += change;
-        if (cartItems[name] <= 0) {
+        cartItems[name].quantity += change;
+        if (cartItems[name].quantity <= 0) {
             delete cartItems[name];
 
 
@@ -60,25 +66,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
 
+
+
         // Обновляем количество на карточке товара
         const productElement = document.querySelector(`.mainItem__Info[data-name="${name}"]`);
         if (productElement) {
-            productElement.parentElement.nextElementSibling.querySelector('.quantity').textContent = cartItems[name] || 0;
+            // productElement.parentElement.nextElementSibling.querySelector('.quantity').textContent = cartItems[name] || 0;
+            // localStorage.setItem(name, price);
+
+            const quantityElement = productElement.parentElement.nextElementSibling.querySelector('.quantity');
+            if (cartItems[name]) {
+                quantityElement.textContent = cartItems[name].quantity;
+            } else {
+                quantityElement.textContent = 0;
+            }
+            localStorage.setItem(name, price);
         }
 
         updateCartTotal();
         saveCartToLocalStorage();
     }
-
+let ccc;
     function updateCartTotal() {
         cartTotal = 0;
         for (const item in cartItems) {
             const productElement = document.querySelector(`.mainItem__Info[data-name="${item}"]`);
             if (productElement) { // Проверяем, что элемент продукта найден
+                const Lprice = localStorage.getItem(item);
                 const price = parseFloat(productElement.querySelector('.mainItem__Price').textContent.replace(/\s/g, ''));
                 const formattedPrice = productElement.querySelector('.mainItem__Price').textContent.replace(/\s/g, '');
                 console.log(formattedPrice)
-                cartTotal += price * cartItems[item];
+                if (Lprice) {
+                    cartTotal += Lprice * cartItems[item].quantity;
+                }
             }
         }
         cartTotalElement.textContent = `${cartTotal} c`;
@@ -108,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
             for (const item in storedCartItems) {
                 const productElement = document.querySelector(`.mainItem__Info[data-name="${item}"]`);
                 if (productElement) {
-                    productElement.parentElement.nextElementSibling.querySelector('.quantity').textContent = cartItems[item];
+                    productElement.parentElement.nextElementSibling.querySelector('.quantity').textContent = cartItems[item].quantity;
                 }
             }
 
@@ -151,10 +171,11 @@ document.addEventListener('DOMContentLoaded', () => {
             
                         <div class="cart__Item">
                             <div class="cart__ItemTitle">${name}</div>
-                            <div class="cart__ItemPrice">30 с</div>
+                            <div class="cart__ItemPrice">${name} с</div>
                         </div>
                         <div class="cart__Item">
-                            <div class="cart__ItemTotal">30 c x ${quantity} = 60 c</div>
+                            <div class="cart__ItemTotal">30 c x ${name.quantity} = 60 c</div>
+                            
                         </div>
         `;
         cart__Group.appendChild(cartItemElement);

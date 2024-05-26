@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="stylesheet" href="/static/css/style.css">
     </head>
     <body>
@@ -23,7 +24,7 @@
                 <#if user.isAdmin()>
                     <a class="p-2 text-dark" href="/product/add">Панель администратора</a>
                 </#if>
-                <a class="p-2 text-dark" href="/">Аккаунт</a>
+<#--                <a class="p-2 text-dark" href="/">Аккаунт</a>-->
             </nav>
 
             <#if user.email??>
@@ -33,7 +34,7 @@
                     <input type="submit" class="btn btn-outline-primary" value="Выйти"/>
                 </form>
             <#else>
-                <a href="/login">Войти</a></h1>
+                <a href="/login" class="btn btn-outline-primary">Войти</a></h1>
             </#if>
 
         </div>
@@ -44,20 +45,14 @@
 <#--        <footer class="footer">-->
 <#--            <div class="container">-->
                 <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
-                    <p class="col-md-4 mb-0 text-body-secondary">© 2023 Company, Inc</p>
+                    <p class="col-md-4 mb-0 text-body-secondary company">© 2023 Ala-Too, Inc</p>
 
-                    <a href="/"
-                       class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                        <svg class="bi me-2" width="40" height="32">
-                            <use xlink:href="#bootstrap"></use>
-                        </svg>
-                    </a>
+
 
                     <ul class="nav col-md-4 justify-content-end">
                         <li class="nav-item"><a href="/" class="nav-link px-2 text-dark">Меню</a></li>
                         <li class="nav-item"><a href="/product/add" class="nav-link px-2 text-dark">Добавить товар</a>
                         </li>
-                        <li class="nav-item"><a href="#" class="nav-link px-2 text-dark">Аккаунт</a></li>
                         <li class="nav-item"><a href="#" class="nav-link px-2 text-dark">FAQs</a></li>
                         <li class="nav-item"><a href="#" class="nav-link px-2 text-dark">About</a></li>
                     </ul>
@@ -66,6 +61,11 @@
 <#--        </footer>-->
     </div>
 
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="/static/js/main.js"></script>
     </body>
     </html>
