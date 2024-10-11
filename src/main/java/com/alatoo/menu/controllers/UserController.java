@@ -36,9 +36,9 @@ public class UserController {
             model.addAttribute("errorMessage", "Пользователь с email: " + user.getEmail() + " уже существует");
             return "registration";
         }
-//        userService.createUser(user);
         return "redirect:/login";
     }
+
 
 
 }
