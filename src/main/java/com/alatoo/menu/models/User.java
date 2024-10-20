@@ -39,6 +39,9 @@ public class User implements UserDetails {
     private List<Product> products = new ArrayList<>();
     private LocalDateTime dateOfCreated;
 
+    @Column(name = "verification_code")
+    private String verificationCode;
+
     @PrePersist
     private void init() {
         dateOfCreated = LocalDateTime.now();
