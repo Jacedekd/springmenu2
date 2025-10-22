@@ -2,6 +2,10 @@ package com.alatoo.menu.controllers;
 
 import com.alatoo.menu.models.Product;
 import com.alatoo.menu.services.ProductService;
+<<<<<<< HEAD
+=======
+import jakarta.servlet.http.HttpServletResponse;
+>>>>>>> main
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,10 +22,26 @@ public class ProductController {
 
 
     @GetMapping("/")
+<<<<<<< HEAD
     public String products(@RequestParam(name = "title", required = false) String title, Principal principal, Model model) {
         model.addAttribute("products", productService.listProducts(title));
         model.addAttribute("user", productService.getUserByPrincipal(principal));
 
+=======
+    public String products(@RequestParam(name = "title", required = false) String title, Principal principal, Model model, HttpServletResponse response) {
+        model.addAttribute("products", productService.listProducts(title));
+//        model.addAttribute("user", productService.getUserByPrincipal(principal));
+
+        if (principal != null) {
+            model.addAttribute("user", productService.getUserByPrincipal(principal));
+        } else {
+            model.addAttribute("user", null); // или new User() — если Freemarker не любит null
+        }
+
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Expires", "0");
+>>>>>>> main
         return "home";
     }
 

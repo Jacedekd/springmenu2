@@ -24,7 +24,11 @@ public class UserService {
         String userEmail = user.getEmail();
         if (userRepository.findByEmail(userEmail) != null) return false;
 
+<<<<<<< HEAD
         if (userEmail.equals("admin@gmail.com")) {
+=======
+        if (userEmail.equals("azizkazanbaev@gmail.com")) {
+>>>>>>> main
             user.setActive(true);
             user.getRoles().add(Role.ROLE_ADMIN);
             user.setPassword(passwordEncoder.encode(user.getPassword()));

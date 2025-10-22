@@ -1,5 +1,9 @@
 <#import "blocks/template.ftlh" as t>
+<<<<<<< HEAD
 <@t.template user>
+=======
+<@t.template user!{} >
+>>>>>>> main
     <main class="main">
         <div class="container mainContainer">
             <a class="mainCart" href="/product/cart">

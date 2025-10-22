@@ -184,3 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadCartFromLocalStorage();
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> main

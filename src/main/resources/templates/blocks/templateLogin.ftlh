@@ -28,6 +28,7 @@
     </head>
     <body>
     <div class="wrapper">
+<<<<<<< HEAD
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom box-shadow">
             <a href="/" class="logo_Img">
                 <img src="/static/images/logo_aiu.png" class="img">
@@ -52,10 +53,37 @@
             </#if>
 
         </div>
+=======
+<#--        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom box-shadow">-->
+<#--            <a href="/" class="logo_Img">-->
+<#--                <img src="/static/images/logo_aiu.png" class="img">-->
+<#--            </a>-->
+
+<#--            <h5 class="my-0 mr-md-auto font-weight-normal">Menu for Ala-Too</h5>-->
+<#--            <nav class="my-2 my-md-0 mr-md-3">-->
+<#--                <#if user.isAdmin()>-->
+<#--                    <a class="p-2 text-dark" href="/product/add">Панель администратора</a>-->
+<#--                </#if>-->
+<#--&lt;#&ndash;                <a class="p-2 text-dark" href="/">Аккаунт</a>&ndash;&gt;-->
+<#--            </nav>-->
+
+<#--            <#if user.email??>-->
+
+<#--                <form action="/logout" method="post">-->
+<#--                    <input type="hidden" name="_csrf" value="${_csrf.token}">-->
+<#--                    <input type="submit" class="btn btn-outline-primary" value="Выйти"/>-->
+<#--                </form>-->
+<#--            <#else>-->
+<#--                <a href="/login" class="btn btn-outline-primary">Войти</a></h1>-->
+<#--            </#if>-->
+
+<#--        </div>-->
+>>>>>>> main
 
 
 
         <#nested >
+<<<<<<< HEAD
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
             <p class="col-md-4 mb-0 text-body-secondary company">© 2023 Ala-Too, Inc</p>
 
@@ -69,6 +97,21 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-dark">About</a></li>
             </ul>
         </footer>
+=======
+<#--        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">-->
+<#--            <p class="col-md-4 mb-0 text-body-secondary company">© 2023 Ala-Too, Inc</p>-->
+
+
+
+<#--            <ul class="nav col-md-4 justify-content-end">-->
+<#--                <li class="nav-item"><a href="/" class="nav-link px-2 text-dark">Меню</a></li>-->
+<#--                <li class="nav-item"><a href="/product/add" class="nav-link px-2 text-dark">Добавить товар</a>-->
+<#--                </li>-->
+<#--                <li class="nav-item"><a href="#" class="nav-link px-2 text-dark">FAQs</a></li>-->
+<#--                <li class="nav-item"><a href="#" class="nav-link px-2 text-dark">About</a></li>-->
+<#--            </ul>-->
+<#--        </footer>-->
+>>>>>>> main
     </div>
 
     <script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>

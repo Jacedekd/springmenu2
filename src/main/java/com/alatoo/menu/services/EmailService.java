@@ -14,7 +14,11 @@ public class EmailService {
     public void sendEmail(String toEmail, String subject, String body) {
         SimpleMailMessage message = new SimpleMailMessage();
 
+<<<<<<< HEAD
         message.setFrom("azizkazanbaev@gmail.com"); // Замените на ваш email
+=======
+        message.setFrom("azizkazanbaev@gmail.com");
+>>>>>>> main
         message.setTo(toEmail);
         message.setSubject(subject);
         message.setText(body);

@@ -54,4 +54,16 @@
 
 
 
+<<<<<<< HEAD
 })(jQuery);
+=======
+})(jQuery);
+
+
+document.getElementById("emailExists").classList.add("show");
+
+// и через несколько секунд можно убрать:
+setTimeout(() => {
+    document.getElementById("emailExists").classList.remove("show");
+}, 7000);
+>>>>>>> main

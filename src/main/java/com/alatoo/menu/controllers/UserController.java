@@ -26,7 +26,16 @@ public class UserController {
 
     @GetMapping("/registration")
     public String registration(Principal principal, Model model) {
+<<<<<<< HEAD
         model.addAttribute("user", userService.getUserByPrincipal(principal));
+=======
+//        model.addAttribute("user", userService.getUserByPrincipal(principal));
+        if (principal != null) {
+            model.addAttribute("user", userService.getUserByPrincipal(principal));
+        } else {
+            model.addAttribute("user", null); // или new User()
+        }
+>>>>>>> main
         return "registration";
     }
 
@@ -39,7 +48,10 @@ public class UserController {
         return "redirect:/verify?email=" + user.getEmail();
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
     @GetMapping("/verify")
     public String verifyPage(@RequestParam("email") String email, Model model, Principal principal) {
         model.addAttribute("email", email);
